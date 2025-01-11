@@ -1,24 +1,33 @@
 ---
-import Section from "../Section.astro"
+import Section from "../Section.astro";
 
-import { education } from "@cv"
+import { education } from "@cv";
 ---
 
 <Section title="Educación">
   <ul>
     {
-      education.map(({ institution, startDate, endDate, area }) => {
-        const startYear = new Date(startDate).getFullYear()
+      education.map(({ institution, url, startDate, endDate, area }) => {
+        const startYear = new Date(startDate).getFullYear();
         const endYear =
-          endDate != null ? new Date(endDate).getFullYear() : "Actual"
-        const years = `${startYear} - ${endYear}`
+          endDate != null ? new Date(endDate).getFullYear() : "Actual";
+        const years = `${startYear} - ${endYear}`;
 
         return (
           <li>
             <article>
               <header>
                 <div>
-                  <h3>{institution}</h3>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="institution-link"
+                  >
+                    <h3>
+                      {institution} <span class="link-icon">🔗</span>
+                    </h3>
+                  </a>
                 </div>
 
                 <time>{years}</time>
@@ -29,7 +38,7 @@ import { education } from "@cv"
               </footer>
             </article>
           </li>
-        )
+        );
       })
     }
   </ul>
@@ -64,5 +73,20 @@ import { education } from "@cv"
     time {
       text-align: right;
     }
+  }
+
+  .institution-link {
+    text-decoration: none;
+    color: #4a4a4a; /* Color gris profesional */
+    font-weight: bold;
+  }
+
+  .institution-link:hover {
+    text-decoration: underline;
+  }
+
+  .link-icon {
+    font-size: 0.8em;
+    margin-left: 5px;
   }
 </style>
