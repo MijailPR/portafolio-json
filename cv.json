@@ -31,8 +31,8 @@
       "name": "IATec - Instituto Adventista de tecnología",
       "position": "Full Stack Developer",
       "url": "https://iatec.com/",
-      "startDate": "2023-01-01",
-      "endDate": "2025-01-01",
+      "startDate": "2022-01-01",
+      "endDate": "2024-01-01",
       "summary": "Durante un año y medio, trabajé como practicante en IATec Academy, donde adquirí experiencia en programación, tanto en el desarrollo de frontend en Angular, backend utilizando C# (.NET Core) y PHP (Laravel),  y en base de datos oracle y postgresql.",
       "highlights": [
         "Started the company"
@@ -58,8 +58,8 @@
       "url": "https://upeu.edu.pe/",
       "area": "Bachiller en Ingenieria de Sistemas",
       "studyType": "Bachelor",
-      "startDate": "2019-01-01",
-      "endDate": "2024-01-01",
+      "startDate": "2018-01-01",
+      "endDate": "2023-01-01",
       "score": "4.0",
       "courses": [
         "DB1101 - Basic SQL"
@@ -70,8 +70,8 @@
       "url": "https://idiomas.upeu.edu.pe/",
       "area": "Ingles - Intermedio",
       "studyType": "Bachelor",
-      "startDate": "2019-01-01",
-      "endDate": "2023-01-01",
+      "startDate": "2018-01-01",
+      "endDate": "2022-01-01",
       "score": "4.0",
       "courses": [
         "DB1101 - Basic SQL"
