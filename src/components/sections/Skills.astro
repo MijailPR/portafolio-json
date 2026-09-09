@@ -1,74 +1,189 @@
 ---
 import Section from "../Section.astro"
-import HTML from "@/icons/html.astro"
-import CSS from "@/icons/css.astro"
-import JavaScript from "@/icons/javascript.astro"
-import TypeScript from "@/icons/type.astro"
-import React from "@/icons/react.astro"
-import Node from "@/icons/node.astro"
-import MySQL from "@/icons/sql.astro"
-import Git from "@/icons/git.astro"
-import GitHub from "@/icons/GitHub.astro"
-import Tailwind from "@/icons/tailwind.astro"
-import Next from "@/icons/next.astro"
+import Database from "@/icons/database.astro"
+import Server from "@/icons/server.astro"
 import { skills } from "@cv"
-import Swift from "@/icons/swift.astro"
-import SwiftUI from "@/icons/swiftui.astro"
-import Kotlin from "@/icons/kotlin.astro"
-import Flutter from "@/icons/flutter.astro"
+import devicon from "@iconify-json/devicon/icons.json"
+import {
+  siAngular,
+  siAstro,
+  siBootstrap,
+  siCss,
+  siGit,
+  siGithub,
+  siHtml5,
+  siJavascript,
+  siJquery,
+  siLaravel,
+  siMysql,
+  siNextdotjs,
+  siNodedotjs,
+  siPhp,
+  siPostgresql,
+  siPython,
+  siReact,
+  siTailwindcss,
+  siTypescript,
+} from "simple-icons"
 
-const SKILLS_ICONS: Record<string, any> = {
-  HTML,
-  CSS,
-  JavaScript,
-  TypeScript,
-  React,
-  Node,
-  MySQL,
-  Git,
-  GitHub,
-  Next,
-  Tailwind,
-  Swift,
-  SwiftUI,
-  Kotlin,
-  Flutter,
-}
+const BRAND_ICONS = {
+  JavaScript: siJavascript,
+  TypeScript: siTypescript,
+  PHP: siPhp,
+  Python: siPython,
+  Angular: siAngular,
+  React: siReact,
+  "Next.js": siNextdotjs,
+  Astro: siAstro,
+  HTML: siHtml5,
+  CSS: siCss,
+  Bootstrap: siBootstrap,
+  jQuery: siJquery,
+  "Tailwind CSS": siTailwindcss,
+  Laravel: siLaravel,
+  "Node.js": siNodedotjs,
+  PostgreSQL: siPostgresql,
+  MySQL: siMysql,
+  Git: siGit,
+  GitHub: siGithub,
+} as const
+
+const DEVICON_NAMES = {
+  "C#": "csharp",
+  "ASP.NET Web Forms": "dotnetcore",
+  ".NET Framework 4.8": "dotnetcore",
+  ".NET Core": "dotnetcore",
+  "SQL Server": "microsoftsqlserver",
+  Oracle: "oracle",
+  OCI: "oracle",
+  "AWS S3": "amazonwebservices",
+} as const
+
+const DATABASE_SKILLS = new Set(["SQL"])
 ---
 
 <Section title="Habilidades">
-  <ul>
+  <ul class="skill-groups">
     {
-      skills.map(({ name }) => {
-        const iconName = name === "Next.js" ? "Next" : name
-        const Icon = SKILLS_ICONS[iconName]
+      skills.map(({ name, keywords }) => (
+          <li class="skill-group">
+            <h3>{name}</h3>
+            <ul class="skill-tags">
+              {
+                keywords.map((keyword) => {
+                  const deviconName = DEVICON_NAMES[keyword as keyof typeof DEVICON_NAMES]
+                  const deviconIcon = deviconName ? devicon.icons[deviconName] : undefined
+                  const brandIcon = BRAND_ICONS[keyword as keyof typeof BRAND_ICONS]
+                  const iconSize = keyword === "C#" ? 17 : 14
 
-        return (
-          <li>
-            {Icon && <Icon />} <span>{name}</span>
+                  return (
+                    <li>
+                      {deviconIcon ? (
+                        <svg
+                          class:list={["technology-icon", keyword === "C#" && "csharp-icon"]}
+                          aria-hidden="true"
+                          viewBox={`0 0 ${devicon.width ?? 128} ${devicon.height ?? 128}`}
+                          width={iconSize}
+                          height={iconSize}
+                          set:html={deviconIcon.body}
+                        />
+                      ) : brandIcon ? (
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          width="14"
+                          height="14"
+                          fill="currentColor"
+                        >
+                          <path d={brandIcon.path} />
+                        </svg>
+                      ) : DATABASE_SKILLS.has(keyword) ? (
+                        <Database />
+                      ) : keyword === "IIS" ? (
+                        <Server />
+                      ) : null}
+                      <span title={keyword === "OCI" ? "Oracle Cloud Infrastructure" : undefined}>
+                        {keyword}
+                      </span>
+                    </li>
+                  )
+                })
+              }
+            </ul>
           </li>
-        )
-      })
+        ))
     }
   </ul>
 </Section>
 
 <style>
-  ul {
-    display: inline-flex;
-    gap: 8px;
-    flex-wrap: wrap;
+  .skill-groups {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 
-  li {
+  .skill-group {
+    break-inside: avoid;
+  }
+
+  .skill-group h3 {
+    color: #333;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-tags li {
     align-items: center;
     background: #eee;
     border-radius: 6px;
-    color: black;
-    display: flex;
-    font-size: 0.8rem;
+    color: #222;
+    display: inline-flex;
+    font-size: 0.72rem;
     font-weight: 500;
-    gap: 4px;
+    gap: 5px;
     padding: 0.2rem 0.6rem;
+  }
+
+  .skill-tags svg {
+    flex: 0 0 auto;
+  }
+
+  .technology-icon :global(path),
+  .technology-icon :global(circle),
+  .technology-icon :global(rect),
+  .technology-icon :global(polygon),
+  .technology-icon :global(ellipse) {
+    fill: currentColor !important;
+  }
+
+  .technology-icon :global(stop) {
+    stop-color: currentColor !important;
+  }
+
+  .csharp-icon :global(path:last-of-type) {
+    fill: #fff !important;
+  }
+
+  @media print {
+    .skill-groups {
+      gap: 8px 14px;
+    }
+
+    .skill-tags {
+      gap: 4px;
+    }
+
+    .skill-tags li {
+      font-size: 0.66rem;
+      padding: 0.12rem 0.45rem;
+    }
   }
 </style>

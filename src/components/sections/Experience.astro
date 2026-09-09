@@ -5,13 +5,13 @@ import { work } from "@cv";
 ---
 
 <Section title="Experiencia laboral">
-  <ul style="margin-top: 15px;">
+  <ul class="experience-list" style="margin-top: 15px;">
     {
       work.map(
         ({ name, startDate, endDate, position, summary, highlights, url }) => {
-          const startYear = new Date(startDate).getFullYear();
+          const startYear = startDate.slice(0, 4);
           const endYear =
-            endDate != null ? new Date(endDate).getFullYear() : "Actual";
+            endDate != null ? endDate.slice(0, 4) : "Actual";
 
           return (
             <li>
@@ -19,8 +19,15 @@ import { work } from "@cv";
                 <header>
                   <div>
                     <h3>
-                      <a href={url} title={`Ver ${name}`} target="_blank">
+                      <a
+                        class="company-link"
+                        href={url}
+                        title={`Visitar el sitio web de ${name}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {name}
+                        <span class="external-link" aria-hidden="true">↗</span>
                       </a>
                     </h3>
                     <h4>{position}</h4>
@@ -39,6 +46,13 @@ import { work } from "@cv";
 
                 <footer>
                   <p>{summary}</p>
+                  {
+                    highlights.length > 0 && (
+                      <ul class="highlights">
+                        {highlights.map((highlight) => <li>{highlight}</li>)}
+                      </ul>
+                    )
+                  }
                 </footer>
               </article>
             </li>
@@ -50,10 +64,25 @@ import { work } from "@cv";
 </Section>
 
 <style>
-  ul {
+  .experience-list {
     display: flex;
     flex-direction: column;
     gap: 32px;
+  }
+
+  .highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+    padding-left: 18px;
+  }
+
+  .highlights li {
+    color: #555;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    list-style: disc;
   }
 
   article h3 {
@@ -65,8 +94,24 @@ import { work } from "@cv";
     color: #111;
   }
 
-  article a:hover {
+  .company-link {
+    align-items: baseline;
+    display: inline-flex;
+    gap: 4px;
     text-decoration: underline;
+    text-decoration-color: #bbb;
+    text-underline-offset: 3px;
+  }
+
+  .company-link:hover {
+    color: #2563eb;
+    text-decoration-color: currentColor;
+  }
+
+  .external-link {
+    color: #777;
+    font-size: 0.65rem;
+    text-decoration: none;
   }
 
   article h4 {
@@ -125,6 +170,25 @@ import { work } from "@cv";
   @media (width <= 700px) {
     time {
       text-align: right;
+    }
+  }
+
+  @media print {
+    .company-link {
+      color: #111;
+      text-decoration: none;
+    }
+
+    .external-link {
+      display: none;
+    }
+
+    .highlights {
+      gap: 3px;
+    }
+
+    .highlights li {
+      font-size: 0.72rem;
     }
   }
 </style>

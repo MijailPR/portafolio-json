@@ -3,12 +3,21 @@ import GitHub from "@/icons/GitHub.astro"
 import Section from "../Section.astro"
 
 import { projects } from "@cv"
+
+const projectList = projects as Array<{
+  name: string
+  isActive: boolean
+  description: string
+  highlights: string[]
+  url: string
+  github?: string
+}>
 ---
 
 <Section title="Proyectos">
   <ul>
     {
-      projects.map(
+      projectList.map(
         ({ url, description, highlights, name, isActive, github }) => {
           return (
             <li>

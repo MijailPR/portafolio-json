@@ -8,9 +8,9 @@ import { education } from "@cv";
   <ul>
     {
       education.map(({ institution, url, startDate, endDate, area }) => {
-        const startYear = new Date(startDate).getFullYear();
+        const startYear = startDate.slice(0, 4);
         const endYear =
-          endDate != null ? new Date(endDate).getFullYear() : "Actual";
+          endDate != null ? endDate.slice(0, 4) : "Actual";
         const years = `${startYear} - ${endYear}`;
 
         return (
@@ -18,16 +18,18 @@ import { education } from "@cv";
             <article>
               <header>
                 <div>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="institution-link"
-                  >
-                    <h3>
-                      {institution} <span class="link-icon">🔗</span>
-                    </h3>
-                  </a>
+                  <h3>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="institution-link"
+                      title={`Visitar el sitio web de ${institution}`}
+                    >
+                      {institution}
+                      <span class="external-link" aria-hidden="true">↗</span>
+                    </a>
+                  </h3>
                 </div>
 
                 <time>{years}</time>
@@ -76,17 +78,34 @@ import { education } from "@cv";
   }
 
   .institution-link {
-    text-decoration: none;
-    color: #4a4a4a; /* Color gris profesional */
-    font-weight: bold;
+    align-items: baseline;
+    color: #111;
+    display: inline-flex;
+    gap: 4px;
+    text-decoration: underline;
+    text-decoration-color: #bbb;
+    text-underline-offset: 3px;
   }
 
   .institution-link:hover {
-    text-decoration: underline;
+    color: #2563eb;
+    text-decoration-color: currentColor;
   }
 
-  .link-icon {
-    font-size: 0.8em;
-    margin-left: 5px;
+  .external-link {
+    color: #777;
+    font-size: 0.65rem;
+    text-decoration: none;
+  }
+
+  @media print {
+    .institution-link {
+      color: #111;
+      text-decoration: none;
+    }
+
+    .external-link {
+      display: none;
+    }
   }
 </style>

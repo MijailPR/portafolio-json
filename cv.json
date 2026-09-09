@@ -4,6 +4,7 @@
     "label": "Full Stack Developer con más de 3 años de experiencia",
     "image": "/me-face.webp",
     "email": "mijailpr@outlook.com.pe",
+    "phone": "",
     "url": "https://midu.dev",
     "summary": "Soy egresado de la Escuela de Ingeniería de Sistemas de la Universidad Peruana Unión, nacido en Lima el 30 de marzo de 2001. Me considero una persona proactiva, responsable y empática, con experiencia en la resolución de problemas complejos y la implementación de soluciones tecnológicas eficientes. Mi objetivo profesional es contribuir al desarrollo de soluciones innovadoras que optimicen procesos y generen valor para las organizaciones en los campos de ingeniería de sistemas, consultoría tecnológica y atención al cliente.",
     "location": {
@@ -28,14 +29,29 @@
   },
   "work": [
     {
-      "name": "IATec - Instituto Adventista de tecnología",
+      "name": "iCRM Educativo",
       "position": "Full Stack Developer",
-      "url": "https://iatec.com/",
+      "url": "https://www.icrmedu.com/",
+      "startDate": "2025-03-01",
+      "endDate": "2026-09-08",
+      "summary": "Responsable del desarrollo integral de aplicaciones web, desde la arquitectura y la base de datos hasta el frontend, backend y despliegue.",
+      "highlights": [
+        "Desarrollé una aplicación para centralizar la gestión de profesionales, entidades, atenciones, expedientes médicos y emisión de certificados.",
+        "Construí una plataforma configurable para crear modelos predictivos mediante la definición de variables de entrada y salida, aplicable a contextos académicos y organizacionales.",
+        "Implementé un sistema de gestión curricular para analizar funciones profesionales, configurar estructuras curriculares y construir planes de estudio.",
+        "Trabajé con C#, ASP.NET Web Forms, .NET Framework 4.8, SQL Server, JavaScript, jQuery, Bootstrap e IIS."
+      ]
+    },
+    {
+      "name": "IATec - Instituto Adventista de Tecnología",
+      "position": "Practicante de Desarrollo Full Stack",
+      "url": "https://www.iatec.com/es/",
       "startDate": "2022-01-01",
       "endDate": "2024-01-01",
-      "summary": "Durante 2 años, trabajé como practicante en IATec Academy, donde adquirí experiencia en programación, tanto en el desarrollo de frontend en Angular, backend utilizando C# (.NET Core) y PHP (Laravel),  y en base de datos oracle y postgresql.",
+      "summary": "Participé de forma remota en IATec Academy, un programa de formación técnica y experiencia práctica en desarrollo de software.",
       "highlights": [
-        "Started the company"
+        "Desarrollé interfaces web con Angular y servicios backend con C# (.NET Core) y PHP (Laravel).",
+        "Trabajé con Oracle y PostgreSQL para la consulta, gestión y persistencia de datos."
       ]
     }
   ],
@@ -105,110 +121,68 @@
   ],
   "skills": [
     {
-      "name": "HTML",
-      "level": "Master",
+      "name": "Lenguajes",
+      "level": "",
       "keywords": [
-        "Desarrollo Web",
-        "Frontend"
-      ]
-    },
-    {
-      "name": "CSS",
-      "level": "Master",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "Diseño Responsive"
-      ]
-    },
-    {
-      "name": "JavaScript",
-      "level": "Master",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "Backend",
-        "Fullstack"
-      ]
-    },
-    {
-      "name": "Tailwind",
-      "level": "Avanzado",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "CSS Framework",
-        "Diseño Responsive"
-      ]
-    },
-    {
-      "name": "TypeScript",
-      "level": "Avanzado",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "Backend",
-        "JavaScript Superset"
-      ]
-    },
-    {
-      "name": "Node",
-      "level": "Avanzado",
-      "keywords": [
-        "Desarrollo Web",
-        "Backend",
+        "C#",
         "JavaScript",
-        "Servidor"
+        "TypeScript",
+        "PHP",
+        "Python",
+        "SQL"
       ]
     },
     {
-      "name": "MySQL",
-      "level": "Avanzado",
+      "name": "Frontend",
+      "level": "",
       "keywords": [
-        "Bases de Datos",
-        "SQL",
-        "Almacenamiento de Datos",
-        "Backend"
+        "Angular",
+        "React",
+        "Next.js",
+        "Astro",
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "jQuery",
+        "Tailwind CSS"
       ]
     },
     {
-      "name": "Git",
-      "level": "Avanzado",
+      "name": "Backend",
+      "level": "",
       "keywords": [
-        "Control de Versiones",
-        "Colaboración",
-        "Código Fuente"
+        "ASP.NET Web Forms",
+        ".NET Framework 4.8",
+        ".NET Core",
+        "Laravel",
+        "Node.js"
       ]
     },
     {
-      "name": "GitHub",
-      "level": "Avanzado",
+      "name": "Bases de datos",
+      "level": "",
       "keywords": [
-        "Control de Versiones",
-        "Colaboración",
-        "Código Fuente",
-        "Git"
+        "SQL Server",
+        "PostgreSQL",
+        "Oracle",
+        "MySQL"
       ]
     },
     {
-      "name": "Next.js",
-      "level": "Avanzado",
+      "name": "Infraestructura y herramientas",
+      "level": "",
       "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "React Framework",
-        "SSR",
-        "Static Generation"
+        "Git",
+        "GitHub",
+        "IIS"
       ]
     },
     {
-      "name": "React",
-      "level": "Avanzado",
+      "name": "Nube",
+      "level": "",
       "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "JavaScript Library",
-        "UI"
+        "OCI",
+        "AWS S3"
       ]
     }
   ],
